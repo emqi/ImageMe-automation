@@ -1,6 +1,9 @@
 ---
 - hosts: imageme_nodes
   become: yes 
+  vars:
+    searchEngine: 006879359584856769921:rplfy3clmho
+    cloudAPI: AIzaSyDLLC1pqOxkWA8jUjM-Cfwbl_13Sh_2t98
   tasks:
     - name: "Git installation"
       yum:
@@ -12,9 +15,9 @@
         version: master
         dest: /home/ec2-user/imageMe
     - name: "Configure environmental variable 1"
-      shell: "echo 'export SEARCH_ENGINE_ID=006879359584856769921:rplfy3clmho' >> .bashrc"
+      shell: "echo 'export SEARCH_ENGINE_ID={{searchEngine}}' >> .bashrc"
     - name: "Configure environmental variable 2"
-      shell: "echo 'export GOOGLE_CLOUD_API_KEY=AIzaSyDLLC1pqOxkWA8jUjM-Cfwbl_13Sh_2t98' >> .bashrc"
+      shell: "echo 'export GOOGLE_CLOUD_API_KEY={{cloudAPI}}' >> .bashrc"
     - name: "Create directory"
       file:
         path: /home/ec2-user/bin
