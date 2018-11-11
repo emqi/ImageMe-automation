@@ -1,0 +1,1 @@
+Automatyzacja instalacji ImageMe za pomocą Ansibla
